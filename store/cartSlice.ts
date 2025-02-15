@@ -2,11 +2,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "./index";
 
 export interface CartState {
-  value: number;
+  cartItem: { title: string; price: number; count: number };
 }
 
 const initialState: CartState = {
-  value: 0,
+  cartItem: { title: "", price: 0, count: 0 },
 };
 
 export const cartSlice = createSlice({
@@ -14,16 +14,19 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addOne: (state) => {
-      state.value += 1;
+      state.cartItem.count += 1;
     },
     subtractOne: (state) => {
-      state.value -= 1;
+      state.cartItem.count -= 1;
+    },
+    addToCart: (state, action) => {
+      state.cartItem = action.payload;
     },
   },
 });
 
-export const { addOne, subtractOne } = cartSlice.actions;
+export const { addOne, subtractOne, addToCart } = cartSlice.actions;
 
-export const selectCart = (state: RootState) => state.cart.value;
+export const selectCount = (state: RootState) => state.cart.cartItem;
 
 export default cartSlice.reducer;
