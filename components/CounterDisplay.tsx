@@ -1,10 +1,10 @@
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
 import React from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import { COLORS } from "@/styles/colors";
 
-const Counter = () => {
+const CounterDisplay = () => {
   return (
     <Box
       sx={{
@@ -30,4 +30,4 @@ const Counter = () => {
   );
 };
 
-export default Counter;
+export default CounterDisplay;

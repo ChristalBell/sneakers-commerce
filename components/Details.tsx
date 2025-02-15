@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import AddToCart from "./AddToCart";
-import Counter from "./Counter";
+import CounterDisplay from "./CounterDisplay";
 import { COLORS } from "@/styles/colors";
 
 const Details = () => {
@@ -78,7 +78,7 @@ const Details = () => {
       </Box>
 
       <Box sx={{ display: "flex", marginTop: "2rem" }}>
-        <Counter />
+        <CounterDisplay />
         <AddToCart />
       </Box>
     </Box>
