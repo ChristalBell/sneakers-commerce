@@ -8,9 +8,8 @@ import React from "react";
 const Home = () => {
   return (
     <Box>
-      <Box>
-        <Header />
-      </Box>
+      <Header />
+      <hr style={{ width: "85vw" }}></hr>
       <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
         <Carousel />
         <Details />
