@@ -10,7 +10,13 @@ const Home = () => {
     <Box>
       <Header />
       <hr style={{ width: "85vw" }}></hr>
-      <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+        }}
+      >
         <Carousel />
         <Details />
       </Box>
