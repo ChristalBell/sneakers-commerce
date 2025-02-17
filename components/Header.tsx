@@ -1,9 +1,22 @@
+"use client";
 import React from "react";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import ToggleButton from "@mui/material/ToggleButton";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { COLORS } from "@/styles/colors";
+import { useAppDispatch } from "@/hooks";
+import Cart from "./Cart";
+
 const Header = () => {
+  const showCart = () => {
+    var cartInfo = document.getElementById("cart");
+    if (cartInfo)
+      cartInfo.style.display =
+        cartInfo.style.display == "block" ? "none" : "block";
+  };
+  const dispatch = useAppDispatch();
   return (
     <Box
       sx={{
@@ -73,13 +86,19 @@ const Header = () => {
       </Box>
 
       <Box className="right" sx={{ display: "flex", alignItems: "center" }}>
-        <Image
-          src="/icon-cart.svg"
-          alt="cart"
-          width={20}
-          height={18}
-          style={{ marginRight: "3rem", marginLeft: "20rem" }}
-        />
+        <ToggleButton onChange={showCart} value="shown">
+          <Image
+            src="/icon-cart.svg"
+            alt="cart"
+            width={20}
+            height={18}
+            style={{ marginRight: "3rem", marginLeft: "20rem" }}
+          />
+        </ToggleButton>
+        <Box id="cart" sx={{ display: "none" }}>
+          <Cart />
+        </Box>
+
         <Image src="/image-avatar.png" alt="profile" width={45} height={45} />
       </Box>
     </Box>

@@ -15,6 +15,7 @@ const AddToCart = () => {
         "&:hover": {
           scale: 1.5,
           color: COLORS.orange,
+          backgroundColor: COLORS.black,
         },
       }}
     >
