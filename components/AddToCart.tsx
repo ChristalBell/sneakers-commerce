@@ -1,7 +1,7 @@
 import { COLORS } from "@/styles/colors";
 import Button from "@mui/material/Button";
 import React from "react";
-import { useAppDispatch, useAppSelector } from "@/hooks";
+import { useAppDispatch } from "@/hooks";
 import { addToCart } from "@/store/cartSlice";
 
 interface Props {
@@ -9,6 +9,7 @@ interface Props {
 }
 
 const AddToCart = ({ shoeCount }: Props) => {
+  console.log(shoeCount);
   const dispatch = useAppDispatch();
 
   return (

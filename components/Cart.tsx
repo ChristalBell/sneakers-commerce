@@ -4,11 +4,16 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { COLORS } from "@/styles/colors";
 import { useAppSelector } from "@/hooks";
+import { data } from "@/data";
 
 const Cart = () => {
-  const cartItem = useAppSelector((state) => state.cart.cartItem);
-  const { count } = cartItem;
-  const totalPrice = 125 * count;
+  const cartCount = useAppSelector((state) => state.cart.cartItem.count);
+  const finalPrice = data.salePrice;
+  const totalPrice = finalPrice * cartCount;
+
+  // const cartItem = useAppSelector((state) => state.cart.cartItem);
+  // const { count, price, title } = cartItem;
+
   return (
     <Box
       sx={{
@@ -33,7 +38,7 @@ const Cart = () => {
           style={{ borderRadius: ".25rem", marginRight: ".5rem" }}
         />
         <Typography sx={{ marginRight: ".5rem", fontWeight: "bold" }}>
-          {count}
+          {cartCount}
         </Typography>
         <Typography sx={{ marginRight: ".5rem" }}>x $125</Typography>
 
