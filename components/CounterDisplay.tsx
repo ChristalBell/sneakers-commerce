@@ -27,7 +27,7 @@ const CounterDisplay = () => {
       >
         <Button
           sx={{ color: COLORS.orange, fontWeight: "bold", fontSize: "1.5rem" }}
-          onClick={() => setShoeCount(shoeCount + 1)}
+          onClick={() => setShoeCount(shoeCount - 1)}
         >
           -
         </Button>
