@@ -1,8 +1,16 @@
 import { COLORS } from "@/styles/colors";
 import Button from "@mui/material/Button";
 import React from "react";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import { addToCart } from "@/store/cartSlice";
 
-const AddToCart = () => {
+interface Props {
+  shoeCount: number;
+}
+
+const AddToCart = ({ shoeCount }: Props) => {
+  const dispatch = useAppDispatch();
+
   return (
     <Button
       sx={{
@@ -18,6 +26,7 @@ const AddToCart = () => {
           backgroundColor: COLORS.black,
         },
       }}
+      onClick={() => dispatch(addToCart({ count: shoeCount }))}
     >
       Add to Cart
     </Button>

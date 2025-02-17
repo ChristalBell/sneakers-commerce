@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import AddToCart from "./AddToCart";
 import CounterDisplay from "./CounterDisplay";
 import { COLORS } from "@/styles/colors";
+import { data } from "@/data";
 
 const Details = () => {
   return (
@@ -27,7 +28,7 @@ const Details = () => {
         variant="h3"
         sx={{ fontWeight: "bold", marginBottom: "2rem" }}
       >
-        Fall Limited Edition Sneakers
+        {data.name}
       </Typography>
       <Typography
         sx={{
@@ -36,9 +37,7 @@ const Details = () => {
           marginBottom: "1.5rem",
         }}
       >
-        These low-profile sneakers are your perfect casual wear companion.
-        Featuring a durable rubber outer sole, theyll withstand everything the
-        weather can offer.{" "}
+        {data.description}
       </Typography>
 
       <Box className="price">
@@ -54,7 +53,7 @@ const Details = () => {
               marginRight: "1rem",
             }}
           >
-            $125.00 sale price
+            ${data.salePrice}
           </Typography>
           <Typography
             sx={{
@@ -63,23 +62,23 @@ const Details = () => {
               borderRadius: ".25rem",
               padding: ".25rem .5rem",
               width: "2rem",
-              height: "1rem",
+              height: "1.5rem",
               marginBottom: "1.25rem",
+              display: "flex",
             }}
           >
             {" "}
-            50%
+            {data.salePercent}%
           </Typography>
         </Box>
         <Typography sx={{ color: COLORS.darkGrayishBlue, fontWeight: "bold" }}>
           {" "}
-          <s>$250.00 original price</s>
+          <s>${data.originalPrice}</s>
         </Typography>
       </Box>
 
       <Box sx={{ display: "flex", marginTop: "2rem" }}>
         <CounterDisplay />
-        <AddToCart />
       </Box>
     </Box>
   );

@@ -3,8 +3,12 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { COLORS } from "@/styles/colors";
+import { useAppSelector } from "@/hooks";
 
 const Cart = () => {
+  const cartItem = useAppSelector((state) => state.cart.cartItem);
+  const { count } = cartItem;
+  const totalPrice = 125 * count;
   return (
     <Box
       sx={{
@@ -18,8 +22,7 @@ const Cart = () => {
       }}
     >
       <Typography sx={{ fontSize: "1.5rem", fontWeight: "bold" }}>
-        {" "}
-        Cart{" "}
+        Cart
       </Typography>
       <Box sx={{ display: " flex" }}>
         <Image
@@ -30,7 +33,7 @@ const Cart = () => {
           style={{ borderRadius: ".25rem", marginRight: ".5rem" }}
         />
         <Typography sx={{ marginRight: ".5rem", fontWeight: "bold" }}>
-          Quantity
+          {count}
         </Typography>
         <Typography sx={{ marginRight: ".5rem" }}>x $125</Typography>
 
@@ -39,7 +42,7 @@ const Cart = () => {
       <Typography
         sx={{ fontWeight: "bold", marginTop: ".5rem", marginLeft: "3.25rem" }}
       >
-        Total
+        Total ${totalPrice}
       </Typography>
     </Box>
   );
