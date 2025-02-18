@@ -5,9 +5,16 @@ import Image from "next/image";
 import { COLORS } from "@/styles/colors";
 
 const Carousel = () => {
+  const openLightbox = () => {
+    var lightbox = document.getElementById("lightbox");
+    if (lightbox)
+      lightbox.style.display =
+        lightbox.style.display == "block" ? "none" : "block";
+  };
+
   return (
-    <Box sx={{ marginTop: "4rem" }}>
-      <Box>
+    <Box id="lightbox" sx={{ marginTop: "4rem" }}>
+      <Box className="main">
         <Image
           style={{ borderRadius: ".75rem" }}
           src="/image-product-1.jpg"

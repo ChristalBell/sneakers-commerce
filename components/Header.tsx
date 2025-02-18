@@ -99,7 +99,16 @@ const Header = () => {
           <Cart />
         </Box>
 
-        <Image src="/image-avatar.png" alt="profile" width={45} height={45} />
+        <Button
+          sx={{
+            "&:hover": {
+              border: `2px solid ${COLORS.orange}`,
+              borderRadius: "50%",
+            },
+          }}
+        >
+          <Image src="/image-avatar.png" alt="profile" width={45} height={45} />
+        </Button>
       </Box>
     </Box>
   );
