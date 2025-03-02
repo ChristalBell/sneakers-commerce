@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { COLORS } from "@/styles/colors";
 import Button from "@mui/material/Button";
+import { act } from "react-dom/test-utils";
 
 const Carousel = () => {
   const [index, setIndex] = useState(0);
@@ -19,12 +20,19 @@ const Carousel = () => {
     setIndex(nextIndex < 0 ? length + 1 : nextIndex);
   };
 
+  // const currentSlide = () => {
+  //   const currentIndex = index;
+  //   setIndex(currentIndex <= 0 ? currentIndex : index);
+  // };
+
   const shoePictures = [
     "/image-product-1.jpg",
     "/image-product-2.jpg",
     "/image-product-3.jpg",
     "/image-product-4.jpg",
   ];
+
+  const active = shoePictures[index];
 
   return (
     <Box>
@@ -38,13 +46,12 @@ const Carousel = () => {
           height: "100%",
         }}
       >
-        <p>{index}</p>
         <Image
           className="mainSlide"
           style={{
             borderRadius: ".75rem",
           }}
-          src={shoePictures[index]}
+          src={active}
           alt="main"
           width={390}
           height={400}
@@ -54,18 +61,20 @@ const Carousel = () => {
       <Box className="thumbnails" sx={{ marginTop: "2rem" }}>
         {shoePictures.map((shoePicture) => {
           return (
-            <Image
-              key={shoePicture}
-              style={{
-                borderRadius: ".75rem",
-                marginRight: "1.5rem",
-              }}
-              src={shoePicture}
-              alt="shoe1"
-              width={80}
-              height={100}
-              className="slideOption"
-            />
+            <Button key={shoePicture} onClick={currentSlide}>
+              <Image
+                style={{
+                  borderRadius: ".75rem",
+                  marginRight: ".25rem",
+                  // border: `2px solid ${COLORS.orange}`,
+                }}
+                src={shoePicture}
+                alt="shoes"
+                width={80}
+                height={100}
+                className="slideOption"
+              />
+            </Button>
           );
         })}
       </Box>
