@@ -5,11 +5,15 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { COLORS } from "@/styles/colors";
 import Button from "@mui/material/Button";
-import { act } from "react-dom/test-utils";
 
 const Carousel = () => {
   const [index, setIndex] = useState(0);
-
+  const shoePictures = [
+    "/image-product-1.jpg",
+    "/image-product-2.jpg",
+    "/image-product-3.jpg",
+    "/image-product-4.jpg",
+  ];
   const previousSlide = () => {
     const prevIndex = index - 1;
     setIndex(prevIndex < 0 ? length - 1 : prevIndex);
@@ -20,17 +24,20 @@ const Carousel = () => {
     setIndex(nextIndex < 0 ? length + 1 : nextIndex);
   };
 
-  // const currentSlide = () => {
-  //   const currentIndex = index;
-  //   setIndex(currentIndex <= 0 ? currentIndex : index);
-  // };
-
-  const shoePictures = [
-    "/image-product-1.jpg",
-    "/image-product-2.jpg",
-    "/image-product-3.jpg",
-    "/image-product-4.jpg",
-  ];
+  const currentSlide = () => {
+    var i = index;
+    const thumbnailPic = document.getElementsByClassName("mainSlide");
+    const testPic = thumbnailPic[i];
+    setIndex(i);
+    console.log(testPic);
+    console.log(i);
+    console.log(index);
+    //     let i = 0;
+    //     const current = document.getElementsByClassName("slideOption");
+    //     const activeSlide = current[i];
+    // if ( i > current.length ? i = 1 : current.length)
+    // if ( i < 1 ? i = current.length : i++ )
+  };
 
   const active = shoePictures[index];
 
