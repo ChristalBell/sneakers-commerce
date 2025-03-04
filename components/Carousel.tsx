@@ -25,18 +25,19 @@ const Carousel = () => {
   };
 
   const currentSlide = () => {
-    var i = index;
-    const thumbnailPic = document.getElementsByClassName("mainSlide");
-    const testPic = thumbnailPic[i];
-    setIndex(i);
-    console.log(testPic);
-    console.log(i);
+    const biggerImage = document.getElementsByClassName("mainSlide");
+    const smallerImage = document.getElementsByClassName("slideOption ");
+    const newIndex = smallerImage.length; //this equals 4
+    console.log(newIndex);
     console.log(index);
-    //     let i = 0;
-    //     const current = document.getElementsByClassName("slideOption");
-    //     const activeSlide = current[i];
-    // if ( i > current.length ? i = 1 : current.length)
-    // if ( i < 1 ? i = current.length : i++ )
+    //  close to working this sets it to the second picture
+    if (index < 1) {
+      setIndex(biggerImage.length);
+      biggerImage.length + 1;
+    } else {
+      if (index <= 3) setIndex(biggerImage.length - 1);
+      biggerImage.length - 1;
+    }
   };
 
   const active = shoePictures[index];
