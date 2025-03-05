@@ -30,15 +30,26 @@ const Carousel = () => {
     const newIndex = smallerImage.length; //this equals 4
     console.log(newIndex);
     console.log(index);
-    //  close to working this sets it to the second picture
-    if (index < 1) {
-      setIndex(biggerImage.length);
-      biggerImage.length + 1;
+
+    const variable = 0;
+    if (variable < 1) {
+      setIndex(1);
     } else {
-      if (index <= 3) setIndex(biggerImage.length - 1);
-      biggerImage.length - 1;
+      if (variable < index) {
+        setIndex(index - 1);
+      }
     }
   };
+
+  //  close to working this sets it to the second picture
+  //   if (index < 1) {
+  //     setIndex(biggerImage.length);
+  //     biggerImage.length + 1;
+  //   } else {
+  //     if (index <= 3) setIndex(biggerImage.length - 1);
+  //     biggerImage.length - 1;
+  //   }
+  // };
 
   const active = shoePictures[index];
 
