@@ -8,8 +8,10 @@ import Image from "next/image";
 import { COLORS } from "@/styles/colors";
 import { useAppDispatch } from "@/hooks";
 import Cart from "./Cart";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Header = () => {
+  const tablet = useMediaQuery("(min-width:900px)");
   const showCart = () => {
     var cartInfo = document.getElementById("cart");
     if (cartInfo)
@@ -92,7 +94,10 @@ const Header = () => {
             alt="cart"
             width={20}
             height={18}
-            style={{ marginRight: "3rem", marginLeft: "20rem" }}
+            style={{
+              marginRight: "3rem",
+              marginLeft: tablet ? "5rem" : "20rem",
+            }}
           />
         </ToggleButton>
         <Box id="cart" sx={{ display: "none" }}>

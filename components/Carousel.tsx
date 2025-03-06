@@ -58,7 +58,7 @@ const Carousel = () => {
             if (shoePicture.value === 0) setIndex(0);
             if (shoePicture.value === 1) setIndex(1);
             if (shoePicture.value === 2) setIndex(2);
-            if (shoePicture.value === 2) setIndex(3);
+            if (shoePicture.value === 3) setIndex(3);
           };
 
           return (

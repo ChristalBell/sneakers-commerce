@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -5,14 +6,17 @@ import AddToCart from "./AddToCart";
 import CounterDisplay from "./CounterDisplay";
 import { COLORS } from "@/styles/colors";
 import { data } from "@/data";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Details = () => {
+  const tablet = useMediaQuery("(min-width:900px)");
   return (
     <Box
       sx={{
         maxWidth: "25vw",
         marginTop: "3rem",
         transform: "translateX(-10rem)",
+        marginLeft: tablet ? "8rem" : 0,
       }}
     >
       <Typography
