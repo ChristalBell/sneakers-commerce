@@ -55,17 +55,10 @@ const Carousel = () => {
           console.log(shoePicture);
 
           const currentSlide = () => {
-            const biggerImage = document.getElementsByClassName("mainSlide");
-            const smallerImage =
-              document.getElementsByClassName("slideOption ");
-            const newIndex = smallerImage.length; //this equals 4
-            console.log(newIndex);
-            console.log(index);
-
-            if (shoePicture.imageSource === "/image-product-1.jpg") setIndex(0);
-            if (shoePicture.imageSource === "/image-product-2.jpg") setIndex(1);
-            if (shoePicture.imageSource === "/image-product-3.jpg") setIndex(2);
-            if (shoePicture.imageSource === "/image-product-4.jpg") setIndex(3);
+            if (shoePicture.value === 0) setIndex(0);
+            if (shoePicture.value === 1) setIndex(1);
+            if (shoePicture.value === 2) setIndex(2);
+            if (shoePicture.value === 2) setIndex(3);
           };
 
           return (
