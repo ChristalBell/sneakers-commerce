@@ -9,10 +9,10 @@ import Button from "@mui/material/Button";
 const Carousel = () => {
   const [index, setIndex] = useState(0);
   const shoePictures = [
-    "/image-product-1.jpg",
-    "/image-product-2.jpg",
-    "/image-product-3.jpg",
-    "/image-product-4.jpg",
+    { imageSource: "/image-product-1.jpg", value: 0 },
+    { imageSource: "/image-product-2.jpg", value: 1 },
+    { imageSource: "/image-product-3.jpg", value: 2 },
+    { imageSource: "/image-product-4.jpg", value: 3 },
   ];
   const previousSlide = () => {
     const prevIndex = index - 1;
@@ -24,34 +24,7 @@ const Carousel = () => {
     setIndex(nextIndex < 0 ? length + 1 : nextIndex);
   };
 
-  const currentSlide = () => {
-    const biggerImage = document.getElementsByClassName("mainSlide");
-    const smallerImage = document.getElementsByClassName("slideOption ");
-    const newIndex = smallerImage.length; //this equals 4
-    console.log(newIndex);
-    console.log(index);
-
-    const variable = 0;
-    if (variable < 1) {
-      setIndex(1);
-    } else {
-      if (variable < index) {
-        setIndex(index - 1);
-      }
-    }
-  };
-
-  //  close to working this sets it to the second picture
-  //   if (index < 1) {
-  //     setIndex(biggerImage.length);
-  //     biggerImage.length + 1;
-  //   } else {
-  //     if (index <= 3) setIndex(biggerImage.length - 1);
-  //     biggerImage.length - 1;
-  //   }
-  // };
-
-  const active = shoePictures[index];
+  const active = shoePictures[index].imageSource;
 
   return (
     <Box>
@@ -79,15 +52,31 @@ const Carousel = () => {
 
       <Box className="thumbnails" sx={{ marginTop: "2rem" }}>
         {shoePictures.map((shoePicture) => {
+          console.log(shoePicture);
+
+          const currentSlide = () => {
+            const biggerImage = document.getElementsByClassName("mainSlide");
+            const smallerImage =
+              document.getElementsByClassName("slideOption ");
+            const newIndex = smallerImage.length; //this equals 4
+            console.log(newIndex);
+            console.log(index);
+
+            if (shoePicture.imageSource === "/image-product-1.jpg") setIndex(0);
+            if (shoePicture.imageSource === "/image-product-2.jpg") setIndex(1);
+            if (shoePicture.imageSource === "/image-product-3.jpg") setIndex(2);
+            if (shoePicture.imageSource === "/image-product-4.jpg") setIndex(3);
+          };
+
           return (
-            <Button key={shoePicture} onClick={currentSlide}>
+            <Button key={shoePicture.value} onClick={currentSlide}>
               <Image
                 style={{
                   borderRadius: ".75rem",
                   marginRight: ".25rem",
                   // border: `2px solid ${COLORS.orange}`,
                 }}
-                src={shoePicture}
+                src={shoePicture.imageSource}
                 alt="shoes"
                 width={80}
                 height={100}
