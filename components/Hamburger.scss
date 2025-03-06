@@ -1,0 +1,12 @@
+a {
+  text-decoration: none;
+  color: #68707d;
+  &:hover {
+    color: #ff7d1a;
+  }
+}
+
+li {
+  list-style-type: none;
+  margin-bottom: 1rem;
+}

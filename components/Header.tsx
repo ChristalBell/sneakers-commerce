@@ -9,6 +9,7 @@ import { COLORS } from "@/styles/colors";
 import { useAppDispatch } from "@/hooks";
 import Cart from "./Cart";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Hamburger from "./Hamburger";
 
 const Header = () => {
   const tablet = useMediaQuery("(min-width:900px)");
@@ -35,6 +36,7 @@ const Header = () => {
           color: COLORS.darkGrayishBlue,
         }}
       >
+        <Hamburger />
         <Image src="/logo.svg" alt="logo" width={120} height={16} />
         <Typography
           sx={{
