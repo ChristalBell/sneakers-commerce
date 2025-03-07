@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 
 const Hamburger = () => {
   return (
-    <Box className="navBar">
+    <Box className="navBar" sx={{ display: "flex" }}>
       <Box
         className="navContainer"
         sx={{
@@ -20,7 +20,7 @@ const Hamburger = () => {
           <span className="line line3"></span>
         </Box>
 
-        <Box className="hamburgerItems">
+        <Box className="hamburgerItems" sx={{ visibility: "hidden" }}>
           <li>
             <a href="#">Collections</a>
           </li>

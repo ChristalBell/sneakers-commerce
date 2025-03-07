@@ -46,6 +46,7 @@ li {
   transition: transform 0.4s ease-in-out;
 }
 
+//makes x
 input[type="checkbox"]:checked ~ .hamburgerLines .line1 {
   transform: rotate(45deg);
 }
@@ -55,4 +56,9 @@ input[type="checkbox"]:checked ~ .hamburgerLines .line2 {
 
 input[type="checkbox"]:checked ~ .hamburgerLines .line3 {
   transform: rotate(-45deg);
+}
+
+//show hamburgerItems
+input[type="checkbox"]:checked ~ .hamburgerItems {
+  visibility: visible;
 }
