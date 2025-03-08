@@ -13,6 +13,7 @@ import Hamburger from "./Hamburger";
 
 const Header = () => {
   const tablet = useMediaQuery("(min-width:900px)");
+  const mobile = useMediaQuery("(max-width:600px)");
   const showCart = () => {
     var cartInfo = document.getElementById("cart");
     if (cartInfo)
@@ -24,25 +25,26 @@ const Header = () => {
     <Box
       sx={{
         alignItems: "center",
-        padding: "2rem 9.5rem",
+        padding: mobile ? "2rem" : "2rem 9.5rem",
         display: "flex",
         justifyContent: "space-between",
       }}
     >
+      <Hamburger />
+      <Image src="/logo.svg" alt="logo" width={120} height={16} />
       <Box
         className="left"
         sx={{
-          display: "flex",
+          display: mobile ? "none" : "flex",
           color: COLORS.darkGrayishBlue,
         }}
       >
-        <Hamburger />
-        <Image src="/logo.svg" alt="logo" width={120} height={16} />
         <Typography
           sx={{
             margin: "0 2rem",
             "&:hover": {
               color: COLORS.orange,
+              cursor: "pointer",
             },
           }}
         >
@@ -53,6 +55,7 @@ const Header = () => {
             marginRight: "2rem",
             "&:hover": {
               color: COLORS.orange,
+              cursor: "pointer",
             },
           }}
         >
@@ -63,6 +66,7 @@ const Header = () => {
             marginRight: "2rem",
             "&:hover": {
               color: COLORS.orange,
+              cursor: "pointer",
             },
           }}
         >
@@ -73,6 +77,7 @@ const Header = () => {
             marginRight: "2rem",
             "&:hover": {
               color: COLORS.orange,
+              cursor: "pointer",
             },
           }}
         >
@@ -82,6 +87,7 @@ const Header = () => {
           sx={{
             "&:hover": {
               color: COLORS.orange,
+              cursor: "pointer",
             },
           }}
         >
@@ -97,8 +103,8 @@ const Header = () => {
             width={20}
             height={18}
             style={{
-              marginRight: "3rem",
-              marginLeft: tablet ? "5rem" : "20rem",
+              marginRight: tablet ? "0rem" : mobile ? "0rem" : "3rem",
+              marginLeft: tablet ? "5rem" : mobile ? "3rem" : "20rem",
             }}
           />
         </ToggleButton>
