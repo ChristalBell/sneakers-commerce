@@ -10,6 +10,9 @@ import { useAppDispatch } from "@/hooks";
 import Cart from "./Cart";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Hamburger from "./Hamburger";
+import Badge from "@mui/material/Badge";
+import { useAppSelector } from "@/hooks";
+import { orange } from "@mui/material/colors";
 
 const Header = () => {
   const tablet = useMediaQuery("(min-width:900px)");
@@ -21,7 +24,8 @@ const Header = () => {
         cartInfo.style.display == "block" ? "none" : "block";
   };
   const dispatch = useAppDispatch();
-
+  const cartCount = useAppSelector((state) => state.cart.cartItem.count);
+  const primary = orange[700];
   return (
     <Box
       sx={{
@@ -98,16 +102,18 @@ const Header = () => {
 
       <Box className="right" sx={{ display: "flex", alignItems: "center" }}>
         <ToggleButton onChange={showCart} value="shown">
-          <Image
-            src="/icon-cart.svg"
-            alt="cart"
-            width={20}
-            height={18}
-            style={{
-              marginRight: tablet ? "0rem" : mobile ? "0rem" : "3rem",
-              marginLeft: tablet ? "5rem" : mobile ? "3rem" : "20rem",
-            }}
-          />
+          <Badge badgeContent={cartCount} color="primary">
+            <Image
+              src="/icon-cart.svg"
+              alt="cart"
+              width={20}
+              height={18}
+              style={{
+                marginRight: tablet ? "0rem" : mobile ? "0rem" : "3rem",
+                marginLeft: tablet ? "5rem" : mobile ? "3rem" : "20rem",
+              }}
+            />
+          </Badge>
         </ToggleButton>
         <Box id="cart" sx={{ display: "none" }}>
           <Cart />
