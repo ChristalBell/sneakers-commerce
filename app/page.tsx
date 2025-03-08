@@ -1,11 +1,14 @@
+"use client";
 import Carousel from "@/components/Carousel";
 import Details from "@/components/Details";
 import Header from "@/components/Header";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Home = () => {
+  const mobile = useMediaQuery("(max-width:600px)");
   return (
     <Box>
       <Header />
@@ -13,6 +16,7 @@ const Home = () => {
       <Box
         sx={{
           display: "flex",
+          flexDirection: mobile ? "column" : "row",
           justifyContent: "space-around",
           alignItems: "center",
         }}

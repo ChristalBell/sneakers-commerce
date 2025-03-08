@@ -13,12 +13,13 @@ const AddToCart = ({ shoeCount }: Props) => {
   console.log(shoeCount);
   const dispatch = useAppDispatch();
   const tablet = useMediaQuery("(min-width:900px)");
+  const mobile = useMediaQuery("(max-width:600px)");
   return (
     <Button
       sx={{
         color: COLORS.black,
         backgroundColor: COLORS.orange,
-        width: tablet ? "10rem" : "20rem",
+        width: tablet ? "10rem" : mobile ? "8rem" : "20rem",
         marginLeft: "2rem",
         fontWeight: "bold",
         borderRadius: ".5rem",

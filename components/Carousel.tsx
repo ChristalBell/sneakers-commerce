@@ -5,8 +5,10 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { COLORS } from "@/styles/colors";
 import Button from "@mui/material/Button";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Carousel = () => {
+  const mobile = useMediaQuery("(max-width:600px)");
   const [index, setIndex] = useState(0);
   const shoePictures = [
     { imageSource: "/image-product-1.jpg", value: 0 },
@@ -16,12 +18,14 @@ const Carousel = () => {
   ];
   const previousSlide = () => {
     const prevIndex = index - 1;
+
     setIndex(prevIndex < 0 ? length - 1 : prevIndex);
+    if (index <= 0) setIndex(0);
   };
 
   const nextSlide = () => {
     const nextIndex = index + 1;
-    setIndex(nextIndex < 0 ? length + 1 : nextIndex);
+    if (index <= 2) return setIndex(nextIndex < 0 ? length + 1 : nextIndex);
   };
 
   const active = shoePictures[index].imageSource;
@@ -33,8 +37,6 @@ const Carousel = () => {
         sx={{
           marginTop: "4rem",
           opacity: 1,
-          display: "block",
-          width: "100%",
           height: "100%",
         }}
       >
@@ -50,7 +52,10 @@ const Carousel = () => {
         />
       </Box>
 
-      <Box className="thumbnails" sx={{ marginTop: "2rem" }}>
+      <Box
+        className="thumbnails"
+        sx={{ marginTop: "2rem", display: mobile ? "none" : "block" }}
+      >
         {shoePictures.map((shoePicture) => {
           console.log(shoePicture);
 
@@ -84,7 +89,7 @@ const Carousel = () => {
         className="buttons"
         sx={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: mobile ? "space-evenly" : "space-between",
           marginTop: ".75rem",
         }}
       >

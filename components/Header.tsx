@@ -21,6 +21,7 @@ const Header = () => {
         cartInfo.style.display == "block" ? "none" : "block";
   };
   const dispatch = useAppDispatch();
+
   return (
     <Box
       sx={{

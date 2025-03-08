@@ -18,12 +18,13 @@ const Cart = () => {
     <Box
       sx={{
         position: "absolute",
-        top: "120px",
+        top: "85px",
         right: "120px",
         backgroundColor: COLORS.white,
         boxShadow: ` 10px 5px 5px ${COLORS.orange};`,
         borderRadius: ".5rem",
         padding: "1rem 1.5rem",
+        zIndex: 2,
       }}
     >
       <Typography sx={{ fontSize: "1.5rem", fontWeight: "bold" }}>

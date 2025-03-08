@@ -10,12 +10,13 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Details = () => {
   const tablet = useMediaQuery("(min-width:900px)");
+  const mobile = useMediaQuery("(max-width:900px)");
   return (
     <Box
       sx={{
-        maxWidth: "25vw",
+        maxWidth: mobile ? "50vw" : "25vw",
         marginTop: "3rem",
-        transform: "translateX(-10rem)",
+        transform: mobile ? "none" : "translateX(-10rem)",
         marginLeft: tablet ? "8rem" : 0,
       }}
     >
@@ -81,7 +82,7 @@ const Details = () => {
         </Typography>
       </Box>
 
-      <Box sx={{ display: "flex", marginTop: "2rem" }}>
+      <Box sx={{ marginTop: "2rem" }}>
         <CounterDisplay />
       </Box>
     </Box>
