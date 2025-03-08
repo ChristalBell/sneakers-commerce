@@ -19,7 +19,7 @@ const AddToCart = ({ shoeCount }: Props) => {
       sx={{
         color: COLORS.black,
         backgroundColor: COLORS.orange,
-        width: tablet ? "10rem" : mobile ? "8rem" : "20rem",
+        width: tablet ? "10rem" : mobile ? "15rem" : "30rem",
         marginLeft: "2rem",
         fontWeight: "bold",
         borderRadius: ".5rem",

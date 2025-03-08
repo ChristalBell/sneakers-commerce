@@ -14,7 +14,7 @@ const Details = () => {
   return (
     <Box
       sx={{
-        maxWidth: mobile ? "50vw" : "25vw",
+        maxWidth: mobile ? "50vw" : "20vw",
         marginTop: "3rem",
         transform: mobile ? "none" : "translateX(-10rem)",
         marginLeft: tablet ? "8rem" : 0,

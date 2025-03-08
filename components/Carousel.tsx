@@ -47,7 +47,7 @@ const Carousel = () => {
           }}
           src={active}
           alt="main"
-          width={390}
+          width={375}
           height={400}
         />
       </Box>
@@ -71,7 +71,7 @@ const Carousel = () => {
               <Image
                 style={{
                   borderRadius: ".75rem",
-                  marginRight: ".25rem",
+                  marginRight: ".05rem",
                   // border: `2px solid ${COLORS.orange}`,
                 }}
                 src={shoePicture.imageSource}

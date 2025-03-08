@@ -6,24 +6,15 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Main from "@/components/Main";
 
 const Home = () => {
   const mobile = useMediaQuery("(max-width:600px)");
   return (
-    <Box>
+    <Box sx={{ marginBottom: "4rem" }}>
       <Header />
       <hr style={{ width: "85vw" }}></hr>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: mobile ? "column" : "row",
-          justifyContent: "space-around",
-          alignItems: "center",
-        }}
-      >
-        <Carousel />
-        <Details />
-      </Box>
+      <Main />
     </Box>
   );
 };
