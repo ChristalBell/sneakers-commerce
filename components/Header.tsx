@@ -26,6 +26,7 @@ const Header = () => {
   const dispatch = useAppDispatch();
   const cartCount = useAppSelector((state) => state.cart.cartItem.count);
   const primary = orange[700];
+
   return (
     <Box
       sx={{

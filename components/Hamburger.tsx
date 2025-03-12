@@ -5,6 +5,21 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Hamburger = () => {
   const mobile = useMediaQuery("(max-width:600px)");
+  const active = () => {
+    const checking = document.getElementById("selected");
+    const displayItems = document.getElementById("navContainer");
+
+    checking?.addEventListener("checked", function () {
+      if (checking.checked) {
+        displayItems.classList.add("hide");
+      } else {
+        displayItems.classList.remove("hide");
+      }
+    });
+    // if x display is flex = active
+    // if x display is none = not-active
+    // if input is checked add classname active to x else remove active
+  };
   return (
     <Box
       className="navBar"
@@ -14,7 +29,7 @@ const Hamburger = () => {
         marginRight: "1rem",
       }}
     >
-      <input className="checkbox" type="checkbox" name="" id="" />
+      <input className="checkbox" type="checkbox" name="" id="selected" />
       <Box className="hamburgerLines">
         <span className="line line1"></span>
         <span className="line line2"></span>
