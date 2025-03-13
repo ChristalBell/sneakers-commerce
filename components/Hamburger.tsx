@@ -2,24 +2,18 @@ import React from "react";
 import ".//Hamburger.scss";
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Button from "@mui/material/Button";
 
 const Hamburger = () => {
   const mobile = useMediaQuery("(max-width:600px)");
-  const active = () => {
-    const checking = document.getElementById("selected");
-    const displayItems = document.getElementById("navContainer");
 
-    checking?.addEventListener("checked", function () {
-      if (checking.checked) {
-        displayItems.classList.add("hide");
-      } else {
-        displayItems.classList.remove("hide");
-      }
-    });
-    // if x display is flex = active
-    // if x display is none = not-active
-    // if input is checked add classname active to x else remove active
+  const showHamburger = () => {
+    var hamburgerInfo = document.getElementById("navContainer");
+    if (hamburgerInfo)
+      hamburgerInfo.style.display =
+        hamburgerInfo.style.display == "none" ? "block" : "none";
   };
+
   return (
     <Box
       className="navBar"
@@ -29,15 +23,18 @@ const Hamburger = () => {
         marginRight: "1rem",
       }}
     >
-      <input className="checkbox" type="checkbox" name="" id="selected" />
+      {/* <input type="checkbox" name="switch" id="switch" onChange={ev => this.onToggle(ev)} checked={this.state.on}/> */}
       <Box className="hamburgerLines">
-        <span className="line line1"></span>
-        <span className="line line2"></span>
-        <span className="line line3"></span>
+        {/* <ToggleButton onChange={showCart} value="shown"> */}
+        <Button onClick={showHamburger}>
+          <span className="line line1"></span>
+          <span className="line line2"></span>
+          <span className="line line3"></span>
+        </Button>
       </Box>
 
       <Box
-        className="navContainer"
+        id="navContainer"
         sx={{
           display: "none",
           width: "8rem",
