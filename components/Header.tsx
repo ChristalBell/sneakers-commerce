@@ -27,13 +27,16 @@ const Header = () => {
   const cartCount = useAppSelector((state) => state.cart.cartItem.count);
   const primary = orange[700];
 
+  const activeMenu = () => {
+    var cartDropdown = document.getElementById("cart");
+  };
+
   return (
     <Box
       sx={{
         alignItems: "center",
-        padding: mobile ? "2rem" : "2rem 9.5rem",
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "space-evenly",
       }}
     >
       <Hamburger />
@@ -116,6 +119,7 @@ const Header = () => {
             />
           </Badge>
         </ToggleButton>
+
         <Box id="cart" sx={{ display: "none" }}>
           <Cart />
         </Box>
